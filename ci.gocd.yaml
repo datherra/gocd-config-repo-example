@@ -3,12 +3,15 @@ pipelines:
     group: Infradel
     materials:
       mygit:
-        git: git@git.thoughtworks.net:techops/gocd-config-repo-example.git
+        git: https://github.com/datherra/gocd-config-repo-example.git
+        branch: master
     stages:
-      - build:
-          approval: manual
-          tasks:
+      - test:
+        approval: manual
+        jobs:
+          echo_test:
+            tasks:
             - exec:
-                   command: echo
-                   arguments:
-                     - "This is an example single job stage"
+              command: echo
+              arguments:
+                - "This is an example single job stage"
